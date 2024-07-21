@@ -1,0 +1,176 @@
+% dãndòng 1,3 lines
+% hai đoạn văn bản cách nhau 6pt và thụt dòng đầu của đoạn văn bản 1 cm.
+
+\documentclass[13pt, a4paper]{report}
+\usepackage[utf8]{vietnam}
+\usepackage{unicode-math}
+\usepackage{graphicx} % import graphics
+\usepackage[a4paper]{geometry}
+\geometry{top=2.5cm, bottom=3cm, left=3cm, right=2cm}
+\graphicspath{ {./images/} }
+\usepackage{titlesec}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{siunitx}
+\usepackage{lmodern}
+\usepackage{changepage}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\linespread{1.3} 
+\setlength{\parindent}{1cm} % Thụt dòng đầu của đoạn văn bản 1 cm
+\setlength{\parskip}{6pt} % Hai đoạn văn bản cách nhau 6pt
+
+%\renewcommand{\thesection}{\arabic{section}}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,  
+    urlcolor=cyan,
+}
+
+\newcommand{\dn}[1]{{\color{blue} [Dung: #1]}}
+\newcommand{\an}[1]{{\color{red} [An: #1]}}
+
+\newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{}\\}
+\setcounter{secnumdepth}{4}
+
+\begin{document}
+% Keywords command
+\providecommand{\keywords}[1]
+{
+  % \small	
+  \textbf{{Từ khóa: }} #1
+}
+\begin{titlepage}
+
+\begin{tikzpicture}[overlay,remember picture]
+  \draw [line width = 3pt]
+   ($ (current page.north west) +(2.5cm, -2.0cm) $)
+   rectangle
+   ($ (current page.south east) + (-1.5cm,2.5cm) $);
+  \draw [line width = 0.5pt]
+  ($ (current page.north west) +(2.6cm, -2.1cm) $)
+   rectangle
+   ($ (current page.south east) + (-1.6cm,2.6cm) $);
+\end{tikzpicture}
+\begin{center}
+{\bfseries\large ĐẠI HỌC QUỐC GIA HÀ NỘI \par}
+{\bfseries\large TRƯỜNG ĐẠI HỌC CÔNG NGHỆ \par}
+\vspace{10mm}
+{\includegraphics[width=0.25\textwidth]{images/logo/uet.png} \par}
+
+\vspace{0.5cm}
+{\bfseries\large KHOA CÔNG NGHỆ THÔNG TIN \par}
+\vspace{0.5cm}
+
+{\bfseries\huge KHOÁ LUẬN TỐT NGHIỆP \par}
+\vspace{0.5cm}
+{\mdseries\huge Tên công trình: Áp dụng quá trình ủ lượng tử
+	\\ để giải bài toán xếp hậu \par}
+\vspace{1cm}
+\end{center}
+
+{\large \textbf{Họ và tên sinh viên: Phùng Văn An} \par}
+\vspace{0.3cm}
+
+
+{\large \textbf{Lớp: K65-CC} \par}
+\vspace{0.3cm}
+
+{\large \textbf{Cán bộ hướng dẫn: TS. Nghiêm Nguyễn Việt Dũng} \par}
+\vspace{0.3cm}
+
+\vfill
+
+\centering
+{\bfseries\large Hà Nội, 2024 \par}
+\end{titlepage}
+\newpage
+\thispagestyle{empty}
+\centerline{\huge{\textbf{Lời cảm ơn}}}
+
+
+Trước tiên, tôi xin gửi lời cảm ơn sâu sắc tới thầy Nghiêm Nguyễn Việt Dũng đã tận tình, đưa ra những lời khuyên và hướng dẫn tôi trong suốt thời gian làm khóa luận tốt nghiệp, cũng là người đã tạo điều kiện tốt nhất để tôi nghiên cứu về lĩnh vực lượng tử, một lĩnh vực thật sự khó. Lần đầu tôi được tiếp xúc với lĩnh vực lượng tử và nghiên cứu khoa học, kiến thức của tôi còn nhiều hạn chế nên không tránh khỏi những sai sót, tôi rất mong nhận được những ý kiến đóng góp quý giá của quý thầy cô để tôi có thể hoàn thiện hơn nữa khóa luận tốt nghiệp của tôi.
+
+Tôi cũng xin cảm ơn các thầy cô trong khoa Công nghệ thông tin – Trường Đại
+học Công Nghệ - Đại học quốc gia Hà Nội đã truyền đạt cho tôi những kiến thức
+chuyên sâu về chuyên ngành trong suốt thời gian học tập để tôi có được nền tảng
+kiến thức hỗ trợ rất lớn cho tôi trong quá trình làm khóa luận tốt nghiệp.
+
+Sau cùng tôi xin tỏ lòng biết ơn đến cha mẹ, người thân và bạn bè đã luôn bên
+cạnh để ủng hộ, động viên tôi trong cuộc sống để tôi có thể hoàn thành tốt luận
+văn tốt nghiệp.
+
+Xin chân thành cảm ơn! 
+
+
+\newpage
+\thispagestyle{empty}
+\centerline{\huge{\textbf{Lời cam đoan}}}
+
+"Tôi xin cam đoan các kết quả nghiên cứu, thực nghiệm được trình bày trong khóa luận này là do tôi thực hiện và được sự hướng dẫn của TS Nghiêm Nguyễn Việt Dũng, trước đây
+chưa từng được sử dụng để làm khóa luận cho bất kỳ tổ chức giáo dục, hay trường
+đại học nào khác."
+\\
+\\
+\\
+Chữ ký: ................................................
+
+\newpage
+\thispagestyle{empty}
+\centerline{\huge{\textbf{Xác nhận của cán bộ hướng dẫn}}}
+
+"Tôi xác nhận rằng khóa luận tốt nghiệp này đã đủ điều kiện để hội đồng đánh giá cho
+chuyên ngành Công Nghệ Thông Tin tại Trường Đại học Công nghệ - Đại học Quốc Gia
+Hà Nội."
+\\
+\\
+\\
+Chữ ký: ................................................
+
+\newpage
+
+\centerline{\textbf{Tóm tắt}}
+\thispagestyle{empty}
+
+Ủ lượng tử là một thuật toán tối ưu hóa lượng tử heuristic có thể được sử dụng để giải quyết các bài toán tối ưu hóa tổ hợp. Trong khóa luận này, chúng ta thảo luận về áp dụng quá trình ủ lượng tử để giải bài toán xếp hậu. Trong đó, chúng ta tận dụng lợi thế tính chất cơ bản của cơ học lượng tử. Nó bao gồm sự phát triển của một hệ thống hạt lượng tử (quantum bits). Chúng cùng nhau xác định dải năng lượng (energy landscape). Sau khi trải qua quá trình ủ đủ chậm, các hạt lượng tử có trạng thái tối ưu để tạo mức năng lượng thấp nhất cho toàn bộ hệ thống. Kết quả ở cuối quá trình ủ sẽ được đo nhiều lần. Nếu trong số những lần đo ta có được cấu hình với mức năng lượng thấp nhất thì cũng đồng nghĩa là tìm ra được lời giải tối ưu của bài toán. Ngoài ra, nếu không đạt được mức năng lượng thấp nhất, lời giải vẫn có ý nghĩa như là một lời giải tốt của bài toán.
+
+Khóa luận này đã so sánh bài toán xếp hậu giữa các phương pháp cổ điển về mặt thời gian chạy. Cùng với đó cũng đã thử nghiệm công thức đề xuất của chúng ta, công thức cộng dồn, và so sánh ủ lượng tử và ủ mô phỏng trên bài toán xếp hậu. Kết quả thực nghiệm của ủ lượng tử dù còn chưa hiệu quả nhưng có hứa hẹn khi so với phương pháp mô phỏng luyện kim trên máy tính cổ điển. Trong tương lai, khi các máy lượng tử được cải tiến và nâng cấp, những bài toán NP-đầy đủ như bài toán xếp hậu với kích thước lớn có thể được giải thành công. 
+
+Cấu trúc của khóa luận được trình bày như sau: Chương 1 giới thiệu bài toán xếp hậu, ủ lượng tử và lý do chọn đề tài. Trong Chương 2, chúng ta so sánh độ phức tạp thời gian của bài toán xếp hậu giữa các phương pháp cổ điển và giải thích các các công thức giải bằng ủ lượng tử. Chương 3, chúng ta sẽ thực nghiệm giữa các công thức và giữa ủ lượng tử và ủ mô phỏng, hiển thị kết quả thực nghiệm. Chương 4 kết luận từ kết quả thực nghiệm của phần trước đó và đề xuất hướng đi.
+\newline
+\newline
+\keywords{bài toán xếp hậu, ủ lượng tử,  giải thuật mô phỏng luyện kim}
+
+\onecolumn
+\thispagestyle{empty}
+\pagenumbering{gobble}
+\tableofcontents
+\thispagestyle{empty}
+% \twocolumn
+\clearpage
+
+
+\input{appendix}
+\pagenumbering{arabic}
+\chapter{Giới thiệu} 
+\input{introduction}
+\input{method}
+\input{result}
+\input{discussion}
+
+
+\onecolumn
+
+\newpage
+%\chapter{Tham khảo} 
+
+\input{reference}
+
+\end{document}
